@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções 2 S0mando Números</title>
+
+    <style>
+
+        section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            
+        }
+
+        #relogioDigital {
+            font-family: Arial, Helvetica, sans-serif,monospace ;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            user-select: none;
+            margin: 1rem;
+            padding: 1rem;
+            
+            font-size: 2rem;
+
+            background-image: linear-gradient(rgb(9, 241, 24),rgb(1, 1, 1),green);
+            box-shadow: 2px 2px 2px black;
+            text-shadow: 2px 2px 2px black;
+            width: 20%;
+            color: rgb(245, 243, 251);
+            border: 0;
+            border-radius: 8px;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        #telaSmart {
+            font-family: Arial, Helvetica, sans-serif, monospace;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            user-select: none;
+            padding: 1rem;
+            border-radius: 20px;
+            box-shadow: 2px 2px 2px black;
+            background-image: linear-gradient(rgb(15, 239, 34),rgb(8, 8, 8),green);
+            color: rgb(219, 231, 221);
+            text-align: center;
+            text-shadow: 2px 2px 2px black;
+            font-size: 2rem;
+
+
+        }
+
+            #relogioDigital:hover {
+                animation: piscar 1s infinite;
+                background-image: linear-gradient(rgb(241, 228, 228),green,green);
+            }
+        #telaSmart:hover {
+            background-image: linear-gradient(black,green,rgb(24, 219, 89));
+            font-size: 40px;
+            width: 20%;
+
+        }
+
+        
+
+        #relogioSmart {
+            
+            user-select:auto;
+            margin-top: 1rem;
+        }
+        #relogioSmart:hover {
+            animation: piscar 1s infinite;
+           
+            
+        }
+        #hSmart, #mSmart {
+            font-size: 2rem;
+        }
+        #sSmart{
+            font-size: 1.5rem;
+        }
+
+        #dataSmart {
+            user-select: none;
+            color: magenta;
+            display: inline-block;
+            font-size: 1rem;
+        }
+
+        #semana{
+            color: greenyellow;
+        }
+        @keyframes piscar {
+            
+            to {
+                opacity: 1;
+            }
+            from {
+                opacity: 0;
+            }
+        }
+        .doisPontos {
+            animation: piscar 1s infinite;
+        }
+        .doisPontos:Last-child {
+            font-size: 0.5rem;
+
+        }
+        #temperatura{
+            animation: piscar 1s infinite;
+            user-select: none;
+            margin-top: 1rem;
+            font-family: sans-serif;
+            font-size: 0.5rem;
+            color: aliceblue;
+        }
+
+
+    </style>
+
+    <style>
+        input {
+            background-image: linear-gradient(rgb(67, 198, 74),rgb(218, 228, 218),rgb(0, 255, 30));
+            text-align: center;
+            margin: auto;
+            cursor: pointer;
+            transition: 0.5s;
+            border-radius: 15px;
+
+        }
+        input:hover{
+            color: rgb(11, 11, 11);
+            background: rgb(7, 197, 42);
+            font-size: larger;
+            
+            
+        }
+        #nav>a:hover {
+            cursor: pointer;
+            border: 10px solid transparent;
+            background: green;
+            
+
+        }
+
+        input[type="file"]{
+
+            color: rgb(237, 232, 232);
+            width: 300px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        
+
+        
+
+        h1 {
+            background-image: linear-gradient(green,blue,white);
+            width: auto;
+            height: auto;
+            line-height: auto;
+            text-align: center;
+        }
+
+        body {
+            background-image: radial-gradient(rgba(5, 181, 20, 0.757),rgba(2, 1, 15, 0.523),rgba(31, 12, 177, 0.887));
+            color: aliceblue;
+        }
+        
+
+
+    </style>
+
+
+
+</head>
+
+
+<body onload="moveRelogio()" >
+    <h1 style="text-shadow: 2px 2px 2px black;" > Calculando a Sorte !!</h1>
+
+
+
+
+<form>
+    <p style="background-image: radial-gradient(blue,green,blue);text-align: center; " > <strong> Cadastro Opcional </strong> !!</p>
+
+    
+
+    <div>
+
+        <label for="Etxt" style="font: normal 10px Arial;" > Nick name:</label>
+        <input type="text" name="Texto" id="Etxt">
+
+
+    </div>
+    
+    <div>
+      <label for="fna88me" style="font: normal 10px Arial;" >First name: </label>
+      <input id="fname" type="text">
+    </div>
+    <div>
+      <label for="lname" style="font: normal 10px Arial;" >Last name: </label>
+      <input id="lname" type="text">
+    </div>
+    <div>
+        <label for="Ename" style="font: normal 10px Arial;" >Seu Email: </label>
+        <input id="Ename" type="text">
+    </div>
+   
+    
+
+
+
+    <div>
+       <input id="submit" type="submit">
+    </div>
+  </form>
+
+  
+
+
+  <script>
+
+var form = document.querySelector('form');
+var fname = document.getElementById('fname');
+var Etxt =document.getElementById('Etxt')
+var lname = document.getElementById('lname');
+var Ename = document.getElementById('Ename')
+var submit = document.getElementById('submit');
+var para = document.querySelector('p');
+
+form.onsubmit = function(e) {
+if (fname.value === '' || lname.value === '' || Ename.value === ''  ) {
+e.preventDefault();
+para.textContent = ' Opss !! Preencher o espaço Vazio...';} 
+}
+
+
+
+
+
+  </script> 
+<p style="background-image: radial-gradient(blue,green,blue); color: blue; "   > . </p>
+  <br> <br> 
+
+
+
+
+
+
+<main class="tela-principal"  >
+ <section class="conteudo" >
+
+    <div id="relogioDigital" >
+        <span id="h"  ></span>: <span id="m" ></span>: <span id="s"  ></span>
+
+    </div>
+
+    <div id="telaSmart" >
+
+     <div id="relogioSmart"  >   
+
+        <span id="hSmart"  ></span> <span class="doisPontos"   >:</span>
+        <span id="mSmart"  ></span>  <span class="doisPontos"   >:</span>
+        <span id="sSmart"  ></span>  
+
+     </div>
+     <div id="dataSmart" >
+         <span id="semana" ></span>
+         <span id="data" ></span>
+         </div>
+
+         <div  id="temperatura"  >
+             <h1 class="city" ></h1>
+             <h2> <span id="temp" >  </span> Time is Money <span id="umidad" ></span>Vagabaund</h2>
+
+         </div>
+    </div>
+  </section>
+</main>
+
+
+
+    <script>
+        let relogio = document.querySelector('#relogio')
+        let h = document.querySelector('#h')
+        let m = document.querySelector('#m')
+        let s = document.querySelector('#s')
+
+        let hSmart = document.querySelector('#hSmart')
+        let mSmart = document.querySelector('#mSmart')
+        let sSmart = document.querySelector('#sSmart')
+
+        let data = document.querySelector('#data')
+        let semana = document.querySelector('#semana')
+
+        let datahora = new Date()
+        //console.log(dataHora)
+
+        function moveRelogio() {
+
+            let momentoAtual = new Date()
+
+            let hora = momentoAtual.getHours()
+            let minuto = momentoAtual.getMinutes()
+            let segundo = momentoAtual.getSeconds()
+
+            let strHora = new String(hora)
+            let strMinuto = new String(minuto)
+            let strSegundo = new String(segundo)
+
+
+            if ( strSegundo.length == 1 ) segundo = "0" + segundo 
+
+            if ( strMinuto.length == 1 ) minuto  = "0" + minuto 
+
+            if (strHora.length == 1 ) hora = "0" + hora 
+
+            h.textContent = hora
+            m.textContent = minuto
+            s.textContent = segundo 
+
+            hSmart.textContent = hora
+            mSmart.textContent = minuto
+            sSmart.textContent = segundo
+
+             setTimeout("moveRelogio()",1000)
+        }
+
+        function pegarData() {
+            let diaDaSemana = dataHora.getDay()
+            let dia = dataHora.getDate()
+            let mes = dataHora.getMonth()+1
+            let ano = dataHora.getFullYear()
+
+            let strDia = new String(dia)
+            let strMes = new String(mes)
+
+            if(strDia.length == 1) mes = '0' + dia
+            if ( strMes.length == 1) mes = '0' + mes 
+
+            switch(diaDaSemaana) {
+                case 0: 
+                diaDaSemana = 'DOM'
+                break;
+                case 1: 
+                diaDaSemana = 'SEG'
+                break;
+                case 2: 
+                diaDaSemana = 'TER'
+                break;
+                case 3: 
+                diaDaSemana = 'QUA'
+                break;
+                case 4: 
+                diaDaSemana = 'QUI'
+                break;
+                case 5: 
+                diaDaSemana = 'SEX'
+                break;
+                case 6:
+                    diaDaSemana = 'SÁB'
+                    break;
+
+            }
+
+            let dataAtual = dia + '/' + mes + '/' + ano 
+            semana.textContent = diaDaSemana
+            data.textContent = dataAtual 
+
+            
+
+        
+        }
+        pegarData()
+        var options = {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          }
+
+          let teste = new Date()
+
+          console.log(teste.toLocaleString('pt-br'))
+          console.log(teste.toLocaleString('pt-BR',options))
+          console.log(teste.toLocaleDateString('pt-BR'))
+          console.log(teste.toLocaleTimeString('pt-BR'))
+
+          
+
+
+
+     </script> <br> <br> <br> <br> <br>
+     <nav style="text-align: center; background-image: radial-gradient(blue,white,blue); " > <a style="background: rgb(119, 0, 255); color: rgb(72, 237, 39); width: 50%;text-align: center; text-shadow: 1px 1px 1px black; border-radius: 10%;box-shadow: 3px 3px 3px black;text-decoration: none;"href="https://pixbet.com/prejogo/" target="_blank" >PIXBET</a>
+
+     <a style="background: rgb(228, 177, 9); color: rgb(11, 1, 1); width:50%; text-shadow: 1px 1px 1px black; border-radius: 10%;box-shadow: 3px 3px 3px black;text-decoration: none;" href="https://br.betano.com"  target="_blank"  >BETANO</a> 
+
+     <a style="background: rgb(244, 246, 243); color: rgb(18, 18, 243); width: 50%;text-align: center; text-shadow: 1px 1px 1px black; border-radius: 10%;box-shadow: 3px 3px 3px black;text-decoration: none;  "  href="https://br.1xbet.com/pt/" target="_blank" > 1XBET </a>  
+
+     <a style="background: rgb(6, 16, 1); color: rgb(38, 217, 10); width: 50%;text-align: center; text-shadow: 1px 1px 1px black; border-radius: 10%;box-shadow: 3px 3px 3px black;text-decoration: none;  "  href="https://sportsbet.io/pt/sports" target="_blank" > SPORTSBET.io </a> 
+
+     <a style="background: rgb(5, 13, 1); color: rgb(240, 201, 6); width: 50%;text-align: center; text-shadow: 1px 1px 1px black; border-radius: 10%;box-shadow: 3px 3px 3px black;text-decoration: none;  "  href="https://www.betfair.com/br" target="_blank" > BETFAIR </a> 
+
+     <a style="background: rgb(247, 249, 246); color: rgb(242, 24, 209); width: 50%;text-align: center; text-shadow: 1px 1px 1px black; border-radius: 10%;box-shadow: 3px 3px 3px black;text-decoration: none;  "  href="https://m.vbet.lat/pb/" target="_blank" > VBET </a> 
+
+
+     <a style="background: rgb(6, 16, 1); color: rgb(247, 82, 5); width: 50%;text-align: center; text-shadow: 1px 1px 1px black; border-radius: 10%;box-shadow: 3px 3px 3px black;text-decoration: none;  "  href="https://betwarrior.bet/pt-br/sports" target="_blank" > BETWARRIOR </a> 
+
+
+     <a style="background: rgb(217, 70, 12); color: rgb(238, 240, 238); width: 50%;text-align: center; text-shadow: 1px 1px 1px black; border-radius: 10%;box-shadow: 3px 3px 3px black;text-decoration: none;  "  href="https://www.dafabet.com/pt" target="_blank" > DAFABET </a> 
+
+
+     <a style="background: rgb(6, 16, 1); color: rgb(197, 235, 11); width: 50%;text-align: center; text-shadow: 1px 1px 1px black; border-radius: 10%;box-shadow: 3px 3px 3px black;text-decoration: none;  "  href="https://www.bet365.com/#/HO/" target="_blank" > BET365 </a> 
+
+
+     <a style="background: rgb(244, 150, 43); color: rgb(252, 253, 251); width: 50%;text-align: center; text-shadow: 1px 1px 1px black; border-radius: 10%;box-shadow: 3px 3px 3px black;text-decoration: none;  "  href="https://www.betsson.com/br" target="_blank" > BETSSON </a> 
+
+     <a style="background: rgb(6, 16, 1); color: rgb(241, 48, 14); width: 50%;text-align: center; text-shadow: 1px 1px 1px black; border-radius: 10%;box-shadow: 3px 3px 3px black;text-decoration: none;  "  href="https://www.bodog.com/" target="_blank" > BODOG </a> 
+
+     <a style="background: rgb(107, 16, 6); color: rgb(252, 253, 251); width: 50%;text-align: center; text-shadow: 1px 1px 1px black; border-radius: 10%;box-shadow: 3px 3px 3px black;text-decoration: none;  "  href="https://www.leovegas.com/pt-br/" target="_blank" > LÉOVEGAS </a> 
+
+     <a style="background: rgb(35, 55, 202); color: rgb(252, 253, 251); width: 50%;text-align: center; text-shadow: 1px 1px 1px black; border-radius: 10%;box-shadow: 3px 3px 3px black;text-decoration: none;  "  href="https://22bet.com/br/" target="_blank" > 22BET </a> 
+
+
+
+
+
+    
+    
+    </nav>  
+
+
+
+
+
+     
+    
+
+
+
+
+
+
+<section1>
+   <p style="text-align: center;" > <strong> I Love This Game !! <strong></strong> </p> <br>
+    <br> <br>
+    <br> <br>
+    <p style="background-image: linear-gradient(blue,green,rgb(62, 42, 209));" >Ods 1 :</p> <p style="text-align: center;  " >Taxa.Paga X Valor.Aposta</p>
+    <p  style="background: rgb(47, 40, 240); height: 20px; width: 80px; margin-left: 50px; " >Texto livre:</p>
+    <input type="text" name="" id=""> 
+    <input type="time" name="" id="">
+<input type="date" name="cale1" id="cale1">
+<input type="number" name="txtn1" id="txtn1"  >  X 
+ <input type="number" name="txtn2" id="txtn2">  
+
+ <input type="button" value="Aposta" onclick="multiplicar1()">
+
+ <p>Retorno Provável : </p>  <div id="res" >Ganhos</div>
+
+</section1>
+
+
+
+ 
+
+
+<script>
+    function multiplicar1() {
+        var tn1 = window.document.getElementById('txtn1')
+        var tn2 = window.document.getElementById('txtn2')
+        var res = window.document.getElementById('res')
+        var n1 = Number(tn1.value)
+        var n2 = Number(tn2.value)
+
+        var s1 = n1 * n2 
+        res.innerHTML = ('R$ ' + s1 ) 
+        
+    }
+
+    
+		
+	
+    
+    </script> 
+
+     <br> <br> <br> <br>
+
+    <section2>
+      <br> <br>
+
+    <p  style="background-image: repeating-linear-gradient(blue,green,blue);" >Ods 2 :</p> <p style="text-align: center;  " >Taxa.Paga X Valor.Aposta</p>
+    <p  style="background: rgb(47, 40, 240); height: 20px; width: 80px; margin-left: 50px; " >Texto livre:</p>
+        <input type="text" name="" id="">
+        <input type="time" name="t"  id="t">
+<input type="date" name="" id="">
+    <input type="number" name="txtn3" id="txtn3" style="flex-direction: column;" > X
+ <input type="number" name="txtn4" id="txtn4" style="flex-direction: column;">  
+ <input type="button" value="Aposta" onclick="multiplicar2()" >
+ <p>Retorno Provável : </p>  <div id="res2" >Ganhos</div>
+</section2>
+
+<script>
+    function multiplicar2() {
+        var tn3 = window.document.getElementById('txtn3')
+        var tn4 = window.document.getElementById('txtn4')
+        var res2 = window.document.getElementById('res2')
+        var n3 = Number(tn3.value)
+        var n4 = Number(tn4.value)
+
+        var s2 = n3 * n4 
+        res2.innerHTML = ( 'R$ '+ s2 )
+        
+    }
+
+
+</script>
+ <br> <br> <br> <br>
+
+<section3>
+
+     <br> <br>
+
+    <p style="background-image: repeating-linear-gradient(blue,green,blue);" >Ods 3 :</p> <p style="text-align: center;  " >Taxa.Paga X Valor.Aposta</p>
+    <p  style="background: rgb(47, 40, 240); height: 20px; width: 80px; margin-left: 50px; " >Texto livre:</p>
+    <input type="text" name="" id="">
+    <input type="time" name="" id="">
+<input type="date" name="" id="">
+<input type="number" name="txtn5" id="txtn5"  > X
+<input type="number" name="txtn6" id="txtn6">  
+<input type="button" value="Aposta" onclick="multiplicar3()" >
+<p>Retorno Provável : </p>  <div id="res3" >Ganhos</div>
+</section3>
+
+<script>
+   function multiplicar3() {
+       var tn5 = window.document.getElementById('txtn5')
+       var tn6 = window.document.getElementById('txtn6')
+       var res3 = window.document.getElementById('res3')
+       var n5 = Number(tn5.value)
+       var n6 = Number(tn6.value)
+
+       var s3 = n5 * n6 
+       res3.innerHTML = ( 'R$ ' + s3) 
+       
+   }
+
+
+</script>
+
+<br> <br> <br>
+
+<section4>
+
+     <br> <br>
+
+    <p style="background-image: repeating-linear-gradient(blue,green,blue); text-shadow: 1px 1px 1px black; " >Ods 4 :</p> <p style="text-align: center;  " >Taxa.Paga X Valor.Aposta</p>
+    <p  style="background: rgb(47, 40, 240); height: 20px; width: 80px; margin-left: 50px; " >Texto livre:</p>
+    <input type="text" name="" id="">
+    <input type="time" name="" id="">
+<input type="date" name="" id="">
+<input type="number" name="txtn7" id="txtn7"  > X
+<input type="number" name="txtn8" id="txtn8">  
+<input type="button" value="Aposta" onclick="multiplicar4()" >
+<p>Retorno Provável : </p>  <div id="res7" >Ganhos</div>
+</section4>
+
+<script>
+   function multiplicar4() {
+       var tn7 = window.document.getElementById('txtn7')
+       var tn8 = window.document.getElementById('txtn8')
+       var res7 = window.document.getElementById('res7')
+       var n7 = Number(tn7.value)
+       var n8 = Number(tn8.value)
+
+       var s7 = n7 * n8
+       res7.innerHTML = ( 'R$ ' + s7) 
+       
+   }
+
+
+</script>
+
+<br> <br> <br> 
+
+
+<section5>
+    
+
+    <p style="background-image: repeating-linear-gradient(blue,green,blue); text-shadow: 1px 1px 1px black; " >Ods 5 :</p> <p style="text-align: center;  " >Taxa.Paga X Valor.Aposta</p>
+    <p  style="background: rgb(47, 40, 240); height: 20px; width: 80px; margin-left: 50px; " >Texto livre:</p>
+    <input type="text" name="" id="">
+    <input type="time" name="" id="">
+<input type="date" name="" id="">
+<input type="number" name="txtn9" id="txtn9"  > X
+<input type="number" name="txtn10" id="txtn10">  
+<input type="button" value="Aposta" onclick="multiplicar5()" >
+<p>Retorno Provável : </p>  <div id="res9" >Ganhos</div>
+</section5>
+
+<script>
+   function multiplicar5() {
+       var tn9 = window.document.getElementById('txtn9')
+       var tn10 = window.document.getElementById('txtn10')
+       var res9 = window.document.getElementById('res9')
+       var n9 = Number(tn9.value)
+       var n10 = Number(tn10.value)
+
+       var s9 = n9 * n10
+       res9.innerHTML = ( 'R$ ' + s9) 
+       
+   }
+
+
+</script>
+
+<br> <br> <br> <br>
+
+<section20>
+  <br> <br>
+
+<p  style="background-image: repeating-linear-gradient(blue,green,blue);" >Ods 6 :</p> <p style="text-align: center;  " >Taxa.Paga X Valor.Aposta</p>
+<p  style="background: rgb(47, 40, 240); height: 20px; width: 80px; margin-left: 50px; " >Texto livre:</p>
+    <input type="text" name="" id="">
+    <input type="time" name="t"  id="t">
+<input type="date" name="" id="">
+<input type="number" name="txtn30" id="txtn30" style="flex-direction: column;" > X
+<input type="number" name="txtn40" id="txtn40" style="flex-direction: column;">  
+<input type="button" value="Aposta" onclick="multiplicar20()" >
+<p>Retorno Provável : </p>  <div id="res20" >Ganhos</div>
+</section20>
+
+<script>
+function multiplicar20() {
+    var tn30 = window.document.getElementById('txtn30')
+    var tn40 = window.document.getElementById('txtn40')
+    var res20 = window.document.getElementById('res20')
+    var n30 = Number(tn30.value)
+    var n40 = Number(tn40.value)
+
+    var s20 = n30 * n40 
+    res20.innerHTML = ( 'R$ '+ s20 )
+    
+}
+
+
+</script>
+
+<br> <br> <br> <br>
+
+<section200>
+  <br> <br>
+
+<p  style="background-image: repeating-linear-gradient(blue,green,blue);" >Ods 7 :</p> <p style="text-align: center;  " >Taxa.Paga X Valor.Aposta</p>
+<p  style="background: rgb(47, 40, 240); height: 20px; width: 80px; margin-left: 50px; " >Texto livre:</p>
+    <input type="text" name="" id="">
+    <input type="time" name="t"  id="t">
+<input type="date" name="" id="">
+<input type="number" name="txtn300" id="txtn300" style="flex-direction: column;" > X
+<input type="number" name="txtn400" id="txtn400" style="flex-direction: column;">  
+<input type="button" value="Aposta" onclick="multiplicar200()" >
+<p>Retorno Provável : </p>  <div id="res200" >Ganhos</div>
+</section200>
+
+<script>
+function multiplicar200() {
+    var tn300 = window.document.getElementById('txtn300')
+    var tn400 = window.document.getElementById('txtn400')
+    var res200 = window.document.getElementById('res200')
+    var n300 = Number(tn300.value)
+    var n400 = Number(tn400.value)
+
+    var s200 = n300 * n400 
+    res200.innerHTML = ( 'R$ '+ s200 )
+    
+}
+
+
+</script>
+
+
+<br><br><br> <br> <br> <br>
+
+
+
+
+<p style="background-image: linear-gradient(blue,green,blue); text-align: center; " > Insira Seus Ganhos : </p>  
+<p style="background: rgb(73, 71, 197); margin-left: 50px; width: 80px; text-shadow: 3px 3px 3px black;  " >Ods Totais:</p>
+<input type="number" name="txtn11" id="txtn11"  > <br>
+<input type="number" name="txtn12" id="txtn12">   <br>
+<input type="number" name="txtn13" id="txtn13"> <br>
+<input type="number" name="txtn14" id="txtn14"> <br>
+<input type="number" name="txtn15" id="txtn15"> <br>
+<input type="number" name="txtn16" id="txtn16"> <br>
+<input type="number" name="txtn17" id="txtn17">
+
+<input type="button" value="Soma Dos Ganhos" onclick="multiplicar6()" >
+ <div id="res11" >Ganhos :</div>
+</section6>
+<br> <br>
+
+<script>
+   function multiplicar6() {
+       var tn11 = window.document.getElementById('txtn11')
+       var tn12 = window.document.getElementById('txtn12')
+       var tn13 = window.document.getElementById('txtn13')
+       var tn14 = window.document.getElementById('txtn14')
+       var tn15 = window.document.getElementById('txtn15')
+       var tn16 = window.document.getElementById('txtn16')
+       var tn17 = window.document.getElementById('txtn17')
+
+
+       var res11 = window.document.getElementById('res11')
+
+       var n11 = Number(tn11.value)
+       var n12 = Number(tn12.value)
+       var n13 = Number(tn13.value)
+       var n14 = Number(tn14.value)
+       var n15 = Number(tn15.value)
+       var n16 = Number(tn16.value)
+       var n17 = Number(tn17.value)
+
+
+       var s11 = n11 + n12 + n13 + n14 + n15  + n16 + n17
+       
+       res11.innerHTML = ( 'Parabéns, você não está rico mas ganhou R$ ' + s11 + ' reais.' ) 
+       
+   }
+
+</script>
+
+
+
+
+<br> <br> <br>
+
+<script>
+    function saveTextAsFile() {
+        var textToWrite = document.getElementById("inputTextToSave").value;
+        var textFileAsBlob = new Blob([textToWrite], {
+          type: 'text/plain'
+        });
+        var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAs").value;
+      
+        var downloadLink = document.createElement("a");
+        downloadLink.download = fileNameToSaveAs;
+        downloadLink.innerHTML = "Download File";
+        if (window.webkitURL != null) {
+          // Chrome allows the link to be clicked
+          // without actually adding it to the DOM.
+          downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+        } else {
+          // Firefox requires the link to be added to the DOM
+          // before it can be clicked.
+          downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+          downloadLink.onclick = destroyClickedElement;
+          downloadLink.style.display = "none";
+          document.body.appendChild(downloadLink);
+        }
+      
+        downloadLink.click();
+      }
+      
+      function destroyClickedElement(event) {
+        document.body.removeChild(event.target);
+      }
+      
+      function loadFileAsText() {
+        var fileToLoad = document.getElementById("fileToLoad").files[0];
+      
+        var fileReader = new FileReader();
+        fileReader.onload = function(fileLoadedEvent) {
+          var textFromFileLoaded = fileLoadedEvent.target.result;
+          document.getElementById("inputTextToSave").value = textFromFileLoaded;
+        };
+        fileReader.readAsText(fileToLoad, "UTF-8");
+      }
+      </script>
+      
+      
+      
+        <table>
+          <tr>
+            <td>Texto de Análise de Ganhos:</td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <textarea id="inputTextToSave" style="width:512px;height:256px"></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td>Digite o nome do arquivo para Salvar o Texto de Análise de Ganhos :</td>
+            <td>
+              <input id="inputFileNameToSaveAs"></input>
+            </td>
+            <td>
+              <button onclick="saveTextAsFile()">Salvar Texto de Análise</button>
+            </td>
+          </tr>
+          <tr>
+            <td>Selecione o Texto Salvo anteriormente e melhores as suas projeções  :</td>
+            <td>
+              <input type="file" id="fileToLoad">
+            </td>
+            <td>
+              <button onclick="loadFileAsText()">Abrir Arquivo selecionado </button>
+              <td>
+          </tr>
+        </table>
+      
+      
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+    
+</body>
+</html>
